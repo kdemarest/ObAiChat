@@ -1,0 +1,27 @@
+// node_modules/svelte/src/constants.js
+var EACH_ITEM_REACTIVE = 1;
+var EACH_INDEX_REACTIVE = 1 << 1;
+var EACH_IS_CONTROLLED = 1 << 2;
+var EACH_IS_ANIMATED = 1 << 3;
+var EACH_ITEM_IMMUTABLE = 1 << 4;
+var PROPS_IS_RUNES = 1 << 1;
+var PROPS_IS_UPDATED = 1 << 2;
+var PROPS_IS_BINDABLE = 1 << 3;
+var PROPS_IS_LAZY_INITIAL = 1 << 4;
+var TRANSITION_OUT = 1 << 1;
+var TRANSITION_GLOBAL = 1 << 2;
+var TEMPLATE_FRAGMENT = 1;
+var TEMPLATE_USE_IMPORT_NODE = 1 << 1;
+var TEMPLATE_USE_SVG = 1 << 2;
+var TEMPLATE_USE_MATHML = 1 << 3;
+var HYDRATION_START = "[";
+var HYDRATION_START_ELSE = "[!";
+var HYDRATION_START_FAILED = "[?";
+var HYDRATION_END = "]";
+var HYDRATION_ERROR = {};
+var ELEMENT_PRESERVE_ATTRIBUTE_CASE = 1 << 1;
+var ELEMENT_IS_INPUT = 1 << 2;
+var UNINITIALIZED = Symbol();
+var FILENAME = Symbol("filename");
+var HMR = Symbol("hmr");
+var NAMESPACE_HTML = "http://www.w3.org/1999/xhtml";

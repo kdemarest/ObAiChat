@@ -1,0 +1,6 @@
+# Built by build.sh, and what the plugin writes while it runs (logs hold chat transcripts).
+assembled-plugin.js
+*.log
+.journal/
+.watcher.pid
+.runbash-watcher.heartbeat
