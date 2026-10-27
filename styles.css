@@ -12,7 +12,7 @@
 }
 
 /* Desktop sidebar min-width */
-.workspace-leaf-content[data-type="gptchat-view"] {
+.workspace-leaf-content[data-type="obaichat-view"] {
   min-width: 280px;
 }
 
@@ -61,6 +61,6 @@
 
 
 /* Optional: neutralize Obsidian mobile keyboard offset in VSCode editor leaf */
-html.gptchat-zero-kb-height-vscode:has(.workspace-leaf-content[data-type="vscode-editor"]) {
+html.obaichat-zero-kb-height-vscode:has(.workspace-leaf-content[data-type="vscode-editor"]) {
   --keyboard-height: 0px !important;
 }

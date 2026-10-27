@@ -1,6 +1,6 @@
 {
-  "id": "gptchat",
-  "name": "GPT Chat",
+  "id": "obaichat",
+  "name": "ObAiChat",
   "version": "0.2.2",
   "minAppVersion": "1.11.4",
   "description": "Agentic AI chat assistant that reads, edits, and creates notes through natural conversation. Supports Anthropic, OpenAI, and ChatGPT account sign-in.",

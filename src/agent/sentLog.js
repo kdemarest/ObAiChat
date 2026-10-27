@@ -17,7 +17,7 @@ class SentLog {
         textToWrite = JSON.stringify(payloadOrBody ?? null, null, 2);
       }
 
-      await effectiveApp.vault.adapter.write("gptchat/sent.log", textToWrite);
+      await effectiveApp.vault.adapter.write("ObAiChat/sent.log", textToWrite);
     } catch {
     }
   }

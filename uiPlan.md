@@ -1,5 +1,5 @@
 ## Progress note
-- Step 1 seam is in place in gptchat/src/ui/chat-view.js via a UI adapter that supports both engines.
+- Step 1 seam is in place in ObAiChat/src/ui/chat-view.js via a UI adapter that supports both engines.
 - Vanilla container is active behind settings.uiEngine = "vanilla" and keeps the same ChatContainer-style method surface.
 - Fixed a vanilla regression where tool-call rows could fail to transition to tool-result rows (causing stuck pending indicator and blocked interaction state). Root cause was rerenderMessage replacing against a mutated msg._el reference.
 - Added a defensive try/catch in updateToolResult so a row render exception degrades to an in-chat error message instead of leaving the UI interaction state stuck.
@@ -38,7 +38,7 @@ Rebuild the current chat UI behavior without Svelte runtime overhead, while pres
   - clearSelection
 
 ## Svelte usage audit (captured from current code)
-- Single integration point: gptchat/src/ui/chat-view.js.
+- Single integration point: ObAiChat/src/ui/chat-view.js.
 - ObsidianChatView uses Svelte mount/unmount directly:
   - onOpen: mount(ChatContainer, { target, props })
   - onClose: await unmount(chatContainer)
@@ -94,13 +94,13 @@ Implementation note:
 - Strict “Svelte does not execute when off” requires build-time exclusion of Svelte code from the loaded bundle.
 
 ## Recommended file structure
-- gptchat/src/ui/chat-view.js
+- ObAiChat/src/ui/chat-view.js
   - ObsidianChatView only (thin lifecycle + loop wiring)
-- gptchat/src/ui/chat-container-vanilla.js
+- ObAiChat/src/ui/chat-container-vanilla.js
   - DOM construction + message rendering + input/selection interactions
-- gptchat/src/ui/tool-result-formatters.js
+- ObAiChat/src/ui/tool-result-formatters.js
   - formatToolName, path extraction helpers, truncation helpers
-- gptchat/src/ui/dom-utils.js
+- ObAiChat/src/ui/dom-utils.js
   - small helpers (createEl, append, empty, safe text)
 
 If minimizing file count is preferred, chat-container-vanilla.js can temporarily include formatters/utilities and split later.

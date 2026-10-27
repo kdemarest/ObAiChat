@@ -8,7 +8,7 @@ function init_chatgptOAuth() {
   DEVICE_VERIFICATION_URI = `${ISSUER}/codex/device`;
   DEVICE_REDIRECT_URI = `${ISSUER}/deviceauth/callback`;
   POLL_MARGIN_MS = 3e3;
-  USER_AGENT = "gptchat/chatgpt-oauth";
+  USER_AGENT = "ObAiChat/chatgpt-oauth";
   ChatGPTOAuthError = class extends Error {
     constructor(message) {
       super(message);

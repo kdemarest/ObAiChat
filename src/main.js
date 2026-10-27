@@ -3,7 +3,7 @@ registerInit("types", init_types);
 
 registerInit("chatgptOAuth", init_chatgptOAuth);
 registerInit("chatgpt_oauth", init_chatgpt_oauth, ["types", "chatgptOAuth"]);
-let PLUGIN_ID = "gptchat";
+let PLUGIN_ID = "obaichat";
 let LEGACY_PLUGIN_ID = "obsidian-chatting";
 let LEGACY_RELEASE_ASSETS = /* @__PURE__ */ new Set(["main.js", "manifest.json", "styles.css"]);
 let SECRET_PROVIDERS = ["anthropic", "openai", "chatgpt-oauth"];
@@ -19,9 +19,9 @@ let ChatPlugin = class extends obsidian.Plugin {
   chatHistory = [];
   runtimeErrorHandlersInstalled = false;
   constructor(app, manifest) {
-    console.log("[gptchat] plugin constructor:enter");
+    console.log("[ObAiChat] plugin constructor:enter");
     super(app, manifest);
-    void this.appendStartupLogLine(`[${(/* @__PURE__ */ new Date()).toISOString()}] gptchat constructor after super`);
+    void this.appendStartupLogLine(`[${(/* @__PURE__ */ new Date()).toISOString()}] ObAiChat constructor after super`);
   }
   installRuntimeErrorHandlers() {
     if (this.runtimeErrorHandlersInstalled) return;
@@ -48,7 +48,7 @@ let ChatPlugin = class extends obsidian.Plugin {
       }
       const adapter = this.app?.vault?.adapter;
       if (!adapter) return;
-      const path = "gptchat/start.log";
+      const path = "ObAiChat/start.log";
       if (typeof adapter.append === "function") {
         await adapter.append(path, `${line}\n`);
         return;
@@ -76,7 +76,7 @@ let ChatPlugin = class extends obsidian.Plugin {
     this.installRuntimeErrorHandlers();
     setAichatStartupComplete(false);
     const startupTs = (/* @__PURE__ */ new Date()).toISOString();
-    await this.appendStartupLogLine(`[${startupTs}] gptchat onload start`);
+    await this.appendStartupLogLine(`[${startupTs}] ObAiChat onload start`);
     await this.compactChatIncomingLogAtStartup();
     const logStartupStep = async (step) => {
       await this.appendStartupLogLine(`[${(/* @__PURE__ */ new Date()).toISOString()}] startup step | ${step}`);
@@ -184,7 +184,7 @@ let ChatPlugin = class extends obsidian.Plugin {
       })
     );
     await logStartupStep("ui:register:ok");
-    await this.appendStartupLogLine(`[${(/* @__PURE__ */ new Date()).toISOString()}] gptchat onload success`);
+    await this.appendStartupLogLine(`[${(/* @__PURE__ */ new Date()).toISOString()}] ObAiChat onload success`);
     setAichatStartupComplete(true);
   } catch (error) {
     let text = "";
@@ -193,7 +193,7 @@ let ChatPlugin = class extends obsidian.Plugin {
     } else {
       text = String(error);
     }
-    await this.appendStartupLogLine(`[${(/* @__PURE__ */ new Date()).toISOString()}] gptchat onload error | ${text}`);
+    await this.appendStartupLogLine(`[${(/* @__PURE__ */ new Date()).toISOString()}] ObAiChat onload error | ${text}`);
     routeAichatRuntimeError(text, "onload");
     throw error;
   }
@@ -400,7 +400,7 @@ let ChatPlugin = class extends obsidian.Plugin {
   }
   applyKeyboardHeightSetting() {
     const root = document.documentElement;
-    const className = "gptchat-zero-kb-height-vscode";
+    const className = "obaichat-zero-kb-height-vscode";
     if (this.settings.zeroKeyboardHeightInVsCode) {
       root.classList.add(className);
       return;

@@ -38,5 +38,5 @@ Runtime is a single Obsidian plugin class (ChatPlugin) with a persistent AgentLo
 - Plugin settings in Obsidian plugin data + per-provider API keys in SecretStorage.
 - OAuth credential in SecretStorage.
 - Conversation persistence: `chat-state.json` (UI history + agent messages).
-- Runtime artifacts: `gptchat/sent.log`, `chatIncoming.log`, `gptchat/start.log`, `gptchat/lastErr.log`, `efficiency.log`, edit journal (`gptchat/.journal/edits.ndjson`).
+- Runtime artifacts: `ObAiChat/sent.log`, `chatIncoming.log`, `ObAiChat/start.log`, `ObAiChat/lastErr.log`, `efficiency.log`, edit journal (`ObAiChat/.journal/edits.ndjson`).
 - CFC (Chat File Cache) is maintained in-loop from successful reads/mutations and injected into provider requests as system-context payload.

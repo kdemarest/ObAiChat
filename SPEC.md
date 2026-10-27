@@ -48,9 +48,9 @@ Do not note every little thing you implement here.
 ## Persistence + Diagnostics
 
 - Conversation state persisted (chat-state.json).
-- Request snapshot persisted (gptchat/sent.log).
+- Request snapshot persisted (ObAiChat/sent.log).
 - Inbound provider events persisted (chatIncoming.log WAL-style).
-- Startup/runtime/error telemetry: gptchat/start.log, gptchat/lastErr.log, efficiency.log.
+- Startup/runtime/error telemetry: ObAiChat/start.log, ObAiChat/lastErr.log, efficiency.log.
 
 ## Build/Operational Constraints
 

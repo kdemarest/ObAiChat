@@ -439,7 +439,7 @@ function init_chatgpt_oauth() {
   "use strict";
   CODEX_RESPONSES_URL = "https://chatgpt.com/backend-api/codex/responses";
   ORIGINATOR = "opencode";
-  USER_AGENT2 = "OpenAI/JS 4.x gptchat/0.1";
+  USER_AGENT2 = "OpenAI/JS 4.x ObAiChat/0.1";
   oauthService = null;
 }
 

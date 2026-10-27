@@ -1,5 +1,5 @@
 
-Read gptchat/AGENTS.md and included files first. 
+Read ObAiChat/AGENTS.md and included files first. 
 
 ## JS File Pattern
 

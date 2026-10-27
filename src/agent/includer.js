@@ -123,7 +123,7 @@ class Includer {
 
   async loadAgentsContext() {
     const adapter = this.app.vault.adapter;
-    const pathFile = `${this.app.vault.configDir}/plugins/gptchat/agents-path.txt`;
+    const pathFile = `${this.app.vault.configDir}/plugins/obaichat/agents-path.txt`;
     let configuredPath = "";
     try {
       configuredPath = (await adapter.read(pathFile)).trim();

@@ -37,7 +37,7 @@ function ChatContainer($$anchor, $$props) {
     set(displayModel, $$props.model, true);
   });
   user_effect(() => {
-    set(agentsStatus, $$props.agentsStatus || "gptchat", true);
+    set(agentsStatus, $$props.agentsStatus || "ObAiChat", true);
   });
   user_effect(() => {
     get2(messages).length;
@@ -108,7 +108,7 @@ function ChatContainer($$anchor, $$props) {
     set(displayModel, name, true);
   }
   function setAgentsStatus(status) {
-    set(agentsStatus, status || "gptchat", true);
+    set(agentsStatus, status || "ObAiChat", true);
   }
   function setSelection(sel) {
     set(selection, sel, true);
@@ -485,7 +485,7 @@ delegate(["click", "keydown", "input"]);
 //__AI_SPLIT_SEGMENT_END__ 000010
 //__AI_SPLIT_SEGMENT_START__ 000011
 // src/ui/chat-view.ts
-var VIEW_TYPE_CHAT = "gptchat-view";
+var VIEW_TYPE_CHAT = "obaichat-view";
 var ObsidianChatView = class extends import_obsidian7.ItemView {
   plugin;
   chatContainer;
@@ -554,7 +554,7 @@ var ObsidianChatView = class extends import_obsidian7.ItemView {
     }
   }
   async getAgentsStatusLabel() {
-    const configPath = `${this.app.vault.configDir}/plugins/gptchat/agents-path.txt`;
+    const configPath = `${this.app.vault.configDir}/plugins/obaichat/agents-path.txt`;
     let configuredPath = "";
     try {
       configuredPath = (await this.app.vault.adapter.read(configPath)).trim();

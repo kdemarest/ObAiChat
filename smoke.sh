@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ "$(basename "$PWD")" != "gptchat" ]]; then
-  echo "Run this from inside gptchat/ (cd gptchat && bash smoke.sh)." >&2
+if [[ "$(basename "$PWD")" != "ObAiChat" ]]; then
+  echo "Run this from inside ObAiChat/ (cd ObAiChat && bash smoke.sh)." >&2
   exit 1
 fi
 

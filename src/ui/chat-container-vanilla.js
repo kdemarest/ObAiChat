@@ -1,7 +1,7 @@
 function createVanillaChatContainer(target, props) {
   const state = {
     displayModel: props?.model || "",
-    agentsStatus: props?.agentsStatus || "gptchat",
+    agentsStatus: props?.agentsStatus || "ObAiChat",
     inputEnabled: true,
     placeholder: "Ask anything...",
     selection: null,
@@ -98,7 +98,7 @@ function createVanillaChatContainer(target, props) {
 
   function renderHeader() {
     const model = state.displayModel || "No model";
-    const agents = state.agentsStatus || "gptchat";
+    const agents = state.agentsStatus || "ObAiChat";
     dom.model.textContent = `${model} • ${agents}`;
   }
 
@@ -466,7 +466,7 @@ function createVanillaChatContainer(target, props) {
       msg.toolResult = result;
       rerenderMessage(msg);
     } catch (err) {
-      console.error("[gptchat] Failed to render tool result", err);
+      console.error("[ObAiChat] Failed to render tool result", err);
       const detail = err && typeof err.message === "string" ? err.message : String(err || "unknown error");
       addError(`Tool UI render error: ${detail}`);
     }
@@ -526,7 +526,7 @@ function createVanillaChatContainer(target, props) {
   }
 
   function setAgentsStatus(status) {
-    state.agentsStatus = status || "gptchat";
+    state.agentsStatus = status || "ObAiChat";
     renderHeader();
   }
 

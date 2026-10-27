@@ -8,7 +8,7 @@ function byteLen(text) {
 function resolveTargetFile() {
   const cwd = process.cwd();
   const candidates = [
-    path.join(cwd, "gptchat/src/ui/chat-view.js"),
+    path.join(cwd, "ObAiChat/src/ui/chat-view.js"),
     path.join(cwd, "src/ui/chat-view.js"),
     path.join(__dirname, "src/ui/chat-view.js")
   ];

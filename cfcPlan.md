@@ -1,12 +1,12 @@
 ## CFC Refactor Plan
 
 ## New file
-- Create gptchat/src/agent/chatFileCache.js.
+- Create ObAiChat/src/agent/chatFileCache.js.
 - Add class ChatFileCache as the single authority for all CFC state and behavior.
-- Export ChatFileCache via declareExports and register in gptchat/GLOBALS.md.
+- Export ChatFileCache via declareExports and register in ObAiChat/GLOBALS.md.
 
 ## What moves into ChatFileCache
-From gptchat/src/agent/loop.js and gptchat/src/api/openai.js, move all CFC logic into ChatFileCache methods, including:
+From ObAiChat/src/agent/loop.js and ObAiChat/src/api/openai.js, move all CFC logic into ChatFileCache methods, including:
 - storage state (map + invalidated paths)
 - add/update/remove/clear entries
 - external-mutation invalidation checks
@@ -27,7 +27,7 @@ From gptchat/src/agent/loop.js and gptchat/src/api/openai.js, move all CFC logic
 - OpenAI adapter asks chatFileCache for the system messages to inject.
 
 ## AgentLoop changes
-File: gptchat/src/agent/loop.js
+File: ObAiChat/src/agent/loop.js
 - Delete in-file CFC helpers and CFC state fields.
 - Replace with this.cfc (ChatFileCache instance).
 - Route all current CFC touchpoints through this.cfc:
@@ -38,10 +38,10 @@ File: gptchat/src/agent/loop.js
 
 ## API layer changes
 Files:
-- gptchat/src/api/client.js
-- gptchat/src/api/openai.js
-- gptchat/src/api/anthropic.js
-- gptchat/src/api/chatgpt-oauth.js
+- ObAiChat/src/api/client.js
+- ObAiChat/src/api/openai.js
+- ObAiChat/src/api/anthropic.js
+- ObAiChat/src/api/chatgpt-oauth.js
 
 Changes:
 - Thread chatFileCache instance through client/provider call chain.
@@ -50,5 +50,5 @@ Changes:
 
 ## Cleanup + docs
 - Remove dead CFC helpers left in loop/openai.
-- Update gptchat/SPEC.md and gptchat/TOPICS.md to state: CFC is class-owned and passed only by ChatFileCache instance.
+- Update ObAiChat/SPEC.md and ObAiChat/TOPICS.md to state: CFC is class-owned and passed only by ChatFileCache instance.
 - Optional: add a short forbidden-patterns note in AGENTS.md (no CFC payload structs/strings outside ChatFileCache).

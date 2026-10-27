@@ -230,7 +230,7 @@ const mockApp = {
 };
 
 try {
-  const instance = new PluginClass(mockApp, { id: "gptchat", name: "GPT Chat" });
+  const instance = new PluginClass(mockApp, { id: "obaichat", name: "ObAiChat" });
   if (!instance || typeof instance !== "object") {
     throw new Error("constructor did not return a plugin instance");
   }

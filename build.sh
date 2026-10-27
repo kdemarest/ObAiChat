@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ "$(basename "$PWD")" != "gptchat" ]]; then
-  echo "Run this from inside gptchat/ (cd gptchat && bash build.sh)." >&2
+if [[ "$(basename "$PWD")" != "ObAiChat" ]]; then
+  echo "Run this from inside ObAiChat/ (cd ObAiChat && bash build.sh)." >&2
   exit 1
 fi
 
 OUTPUT="${AICHAT_BUILD_OUTPUT:-assembled-plugin.js}"
-PLUGIN_MAIN="${AICHAT_PLUGIN_MAIN:-../.obsidian/plugins/gptchat/main.js}"
+PLUGIN_MAIN="${AICHAT_PLUGIN_MAIN:-../.obsidian/plugins/obaichat/main.js}"
 BUILD_LOG="${AICHAT_BUILD_LOG:-build.log}"
 
 : > "$BUILD_LOG"
@@ -29,7 +29,7 @@ mapfile -t FILES < <(
 )
 
 if (( ${#FILES[@]} == 0 )); then
-  echo "No .js files found under gptchat/." >&2
+  echo "No .js files found under ObAiChat/." >&2
   exit 1
 fi
 

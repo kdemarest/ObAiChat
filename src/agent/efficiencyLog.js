@@ -8,7 +8,7 @@ class EfficiencyLog {
   }
 
   static get PATH() {
-    return "gptchat/efficiency.log";
+    return "ObAiChat/efficiency.log";
   }
 
   static get MAX_BYTES() {

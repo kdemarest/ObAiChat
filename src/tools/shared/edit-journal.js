@@ -1,7 +1,7 @@
 const ToolHelper = declareNamespace("ToolHelper");
 
 const EDIT_JOURNAL_PATH = ToolHelper.export(function EDIT_JOURNAL_PATH() {
-  return "gptchat/.journal/edits.ndjson";
+  return "ObAiChat/.journal/edits.ndjson";
 });
 
 async function ensureAdapterFolder(adapter, folderPath) {
@@ -49,7 +49,7 @@ const readEditJournalEntries = ToolHelper.export(async function readEditJournalE
 
 async function appendEditJournalEntry(app, entry) {
   const adapter = app.vault.adapter;
-  await ensureAdapterFolder(adapter, "gptchat/.journal");
+  await ensureAdapterFolder(adapter, "ObAiChat/.journal");
   const line = JSON.stringify(entry) + "\n";
   try {
     await adapter.append(ToolHelper.EDIT_JOURNAL_PATH(), line);

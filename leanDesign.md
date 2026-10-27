@@ -11,7 +11,7 @@ Send only a compact conversation transcript plus references to local artifacts.
 
 Replace large tool results with stubs:
 - tool: read_file
-- target: gptchat/sentFirst.log
+- target: ObAiChat/sentFirst.log
 - bytes: 82198
 - sha256: <hash>
 - summary: "log file with prior payload stats"
@@ -29,13 +29,13 @@ Store full tool outputs locally in an artifact store keyed by hash. Do not injec
 Current implementation note: successful read_file tool results over 32KB are elided before the first model send of each user turn (threshold = 32768 bytes).
 
 ## Local artifact store
-- Path: gptchat/.artifacts/
+- Path: ObAiChat/.artifacts/
 - Key: sha256(content)
 - Metadata index: artifact hash -> bytes, mime/type, createdAt, source tool, source path
 - Dedup by hash (same content stored once)
 
 ## File-change capture pipeline (source of truth)
-- inotify is signal-only: append touched file paths to gptchat/.journal/touches.ndjson.
+- inotify is signal-only: append touched file paths to ObAiChat/.journal/touches.ndjson.
 - Never write final edit journal entries directly from inotify events.
 - Before every AI send: drain touches, dedupe paths, reconcile actual file content, and append diff journal entries for real changes.
 - After every AI send sequence: run the same reconciliation again to catch changes that happened during tool execution.
@@ -103,7 +103,7 @@ Suggested default: M = 6 turns.
 
 ## Remaining implementation plan
 Phase 2: watcher-assisted diff journal + revert command surface.
-1) Add touches queue (inotify signal-only) at gptchat/.journal/touches.ndjson.
+1) Add touches queue (inotify signal-only) at ObAiChat/.journal/touches.ndjson.
 2) Implement pre-send and post-send reconciliation that drains touches, verifies hashes, diffs baseline -> current, and appends journal entries.
 3) Revert command: revert last change to <file> and revert by journal entry id using inverse diff apply.
 4) Verify across assistant edits and user/manual edits on the same file, including "manual edit is last change" cases.

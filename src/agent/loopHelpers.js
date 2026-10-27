@@ -9,7 +9,7 @@ function debugLog(app, label, data) {
   try {
     const timestamp = (/* @__PURE__ */ new Date()).toISOString();
     const entry = `\n--- ${label} [${timestamp}] ---\n${JSON.stringify(data, null, 2)}\n`;
-    void app.vault.adapter.append(`${app.vault.configDir}/plugins/gptchat/debug.log`, entry);
+    void app.vault.adapter.append(`${app.vault.configDir}/plugins/obaichat/debug.log`, entry);
   } catch {
   }
 }

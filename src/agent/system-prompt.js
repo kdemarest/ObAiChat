@@ -1,6 +1,6 @@
 
-let SYSTEM_PROMPT_PATH = "gptchat/SystemPrompt.md";
-let loadedSystemPrompt = "System prompt unavailable: gptchat/SystemPrompt.md has not been loaded yet.";
+let SYSTEM_PROMPT_PATH = "ObAiChat/SystemPrompt.md";
+let loadedSystemPrompt = "System prompt unavailable: ObAiChat/SystemPrompt.md has not been loaded yet.";
 function buildSystemPromptLoadError(reason) {
   return `System prompt unavailable: ${reason}. Required source: ${SYSTEM_PROMPT_PATH}.`;
 }
@@ -9,14 +9,14 @@ async function loadSystemPrompt(app) {
     const raw = await app.vault.adapter.read(SYSTEM_PROMPT_PATH);
     const text = String(raw || "").trim();
     if (text.length === 0) {
-      loadedSystemPrompt = buildSystemPromptLoadError("gptchat/SystemPrompt.md is empty");
+      loadedSystemPrompt = buildSystemPromptLoadError("ObAiChat/SystemPrompt.md is empty");
       return loadedSystemPrompt;
     }
     loadedSystemPrompt = text;
     return loadedSystemPrompt;
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e || "read failed");
-    loadedSystemPrompt = buildSystemPromptLoadError(`failed to read gptchat/SystemPrompt.md (${msg})`);
+    loadedSystemPrompt = buildSystemPromptLoadError(`failed to read ObAiChat/SystemPrompt.md (${msg})`);
     return loadedSystemPrompt;
   }
 }

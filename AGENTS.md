@@ -24,7 +24,7 @@ The build.sh
 - Encapsulates each .js file in braces
 - Concatenates into assembled-plugin.js
 - Runs syntax checks and a smoke test
-- Copies the result to .obsidian/plugins/gptchat/main.js, a file you can never see.
+- Copies the result to .obsidian/plugins/obaichat/main.js, a file you can never see.
 
 As a programmer, you should:
 

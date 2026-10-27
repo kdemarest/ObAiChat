@@ -12,7 +12,7 @@ function resolveAgentsPath(path, vaultName) {
 
 async function agentsTool(app, input) {
   const rawPath = ToolHelper.requiredString(input.path).trim();
-  const configPath = `${app.vault.configDir}/plugins/gptchat/agents-path.txt`;
+  const configPath = `${app.vault.configDir}/plugins/obaichat/agents-path.txt`;
   const adapter = app.vault.adapter;
 
   if (rawPath === "-") {
@@ -32,7 +32,7 @@ async function agentsTool(app, input) {
       return { result: `Could not read AGENTS file at: ${rawPath}`, isError: true };
     }
 
-    const dir = `${app.vault.configDir}/plugins/gptchat`;
+    const dir = `${app.vault.configDir}/plugins/obaichat`;
     try {
       if (!await adapter.exists(dir)) {
         await adapter.mkdir(dir);
